@@ -23,6 +23,10 @@ def lambda_handler(event, context):
 
         return "le Monde"
 
+    if event["input"] == "Привет":
+
+        return "Мир"
+
     else:
 
         raise
