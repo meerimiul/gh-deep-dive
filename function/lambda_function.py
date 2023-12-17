@@ -15,6 +15,14 @@ def lambda_handler(event, context):
 
         return "World"
 
+    if event["input"] == "Hola":
+
+        return "Mundo"
+
+    if event["input"] == "Bonjour":
+
+        return "le Monde"
+
     else:
 
         raise
