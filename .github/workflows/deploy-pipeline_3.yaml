@@ -90,7 +90,7 @@ jobs:
               --function-name test-function-${{ matrix.input }} \
               --payload $(echo "{\"input\": \"${{ matrix.input }}\"}" | base64) \
               --output json out
-            if grep -q "Eror" out; then 
+            if grep -q "Error" out; then 
               exit 1
             fi
       - name: Wait 30 seconds
