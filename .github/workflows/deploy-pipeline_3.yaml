@@ -83,7 +83,7 @@ jobs:
               --code S3Bucket=${{ secrets.S3_BUCKET_NAME }},S3Key=${{ github.sha }}.zip \
               --handler lambda_function.lambda_handler \
               --runtime python3.8 \
-              --role arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/my-lambda-function-role-haxje4fh  
+              --role arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/my-Lambda-role 
       - name: Invoke test function 
         run: |
             sleep 4
