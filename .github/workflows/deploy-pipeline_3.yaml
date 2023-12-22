@@ -53,7 +53,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: zipped-bundle
-          path: function.zip
+          # path: function.zip
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
