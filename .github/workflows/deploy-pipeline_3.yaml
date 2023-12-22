@@ -73,9 +73,15 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
+<<<<<<< HEAD
           aws-access-key-id: ${{ secrets.ACCES_KEY  }}
           aws-secret-access-key: ${{ secrets.SECRET_KEY }}
           aws-region: us-east-2
+=======
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+>>>>>>> origin/lab
       - name: Create test function
         run: |
             aws lambda create-function \
@@ -86,6 +92,10 @@ jobs:
               --role arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/my-Lambda-role
       - name: Invoke test function 
         run: |
+<<<<<<< HEAD
+=======
+            sleep 10
+>>>>>>> origin/lab
             aws lambda invoke --function-name test-function-${{ matrix.input }} \
               --payload $(echo "{\"input\": \"${{ matrix.input }}\"}" | base64) \
               --output json out 
@@ -114,4 +124,4 @@ jobs:
               --function-name my-lambda-function \
               --s3-bucket ${{ secrets.S3_BUCKET_NAME }} \
               --s3-key ${{ github.sha }}.zip \
-              --publish
+              --publish  

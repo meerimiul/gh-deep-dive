@@ -63,13 +63,18 @@ jobs:
       - name: Upload to S3
         run: aws s3 cp ${{ github.sha }}.zip s3://${{ secrets.S3_BUCKET_NAME }}/${{ github.sha }}.zip
 
+<<<<<<< HEAD
 test:
+=======
+ test:
+>>>>>>> origin/lab
     runs-on: ubuntu-latest
     needs: upload
     steps:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
+<<<<<<< HEAD
           aws-access-key-id: ${{ secrets.ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.SECRET_KEY }}
           aws-region: us-east-2
@@ -78,10 +83,20 @@ test:
             sleep 5
             aws lambda create-function \
               --function-name my-lambda-function \
+=======
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Create test function
+        run: |
+            aws lambda create-function \
+              --function-name test-function \
+>>>>>>> origin/lab
               --code S3Bucket=${{ secrets.S3_BUCKET_NAME }},S3Key=${{ github.sha }}.zip \
               --handler lambda_function.lambda_handler \
               --runtime python3.8 \
               --role arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/my-Lambda-role
+<<<<<<< HEAD
       - name: Wait 30 seconds
         run: sleep 30
       - name: Destroy my-lambda-function
@@ -90,6 +105,16 @@ test:
             aws lambda delete-function \
               --function-name my-lambda-function
   
+=======
+      - name: Wait 10 seconds
+        run: sleep 10
+      - name: Destroy test function
+        if: ${{ always() }}
+        run: |
+            aws lambda delete-function \
+              --function-name test-function
+
+>>>>>>> origin/lab
   deploy:
     runs-on: ubuntu-latest
     needs: test
