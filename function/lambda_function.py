@@ -8,24 +8,24 @@ def lambda_handler(event, context):
     Returns:
         string: greeting response
     """
-    # print('Starting functions\n---------------------------------------------'
-    print('Starting functions\n---------------------------------------------')
+    print('Starting functions\n---------------------------------------------'
+    # print('Starting functions\n---------------------------------------------')
 
-    if event["input"] == "Hello":
+    # if event["input"] == "Hello":
 
-        return "World"
+    #     return "World"
 
-    if event["input"] == "Hola":
+    # if event["input"] == "Hola":
 
-        return "Mundo"
+    #     return "Mundo"
 
-    if event["input"] == "Bonjour":
+    # if event["input"] == "Bonjour":
 
-        return "le Monde"
+    #     return "le Monde"
 
-    if event["input"] == "Привет":
+    # if event["input"] == "Привет":
 
-        return "Мир"
+    #     return "Мир"
 
     else:
 
