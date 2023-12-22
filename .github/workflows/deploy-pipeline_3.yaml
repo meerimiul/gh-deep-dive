@@ -86,7 +86,7 @@ jobs:
               --role arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/my-lambda-function-role-haxje4fh  
       - name: Invoke test function 
         run: |
-            sleep 5
+            sleep 4
             aws lambda invoke --function-name test-function-${{ matrix.input }} \
               --payload $(echo "{\"input\": \"${{ matrix.input }}\"}" | base64) \
               --output json out 

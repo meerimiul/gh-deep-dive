@@ -81,8 +81,8 @@ jobs:
               --handler lambda_function.lambda_handler \
               --runtime python3.8 \
               --role arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/my-lambda-function-role-haxje4fh  
-      - name: Wait 10 seconds
-        run: sleep 10
+      - name: Wait 5 seconds
+        run: sleep 5
       - name: Destroy my-lambda-function
         if: ${{ always() }}
         run: |
