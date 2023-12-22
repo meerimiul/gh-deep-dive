@@ -80,3 +80,5 @@ jobs:
               --s3-bucket ${{ secrets.S3_BUCKET_NAME }} \
               --s3-key ${{ github.sha }}.zip \
               --publish
+
+              
