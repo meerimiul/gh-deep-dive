@@ -81,14 +81,13 @@ jobs:
               --handler lambda_function.lambda_handler \
               --runtime python3.8 \
               --role arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/my-Lambda-role
-      - name: Wait 30 seconds
-        run: sleep 30
+      - name: Wait 10 seconds
+        run: sleep 10
       - name: Destroy test function
         if: ${{ always() }}
         run: |
             aws lambda delete-function \
               --function-name test-function
-
 
   deploy:
     runs-on: ubuntu-latest
